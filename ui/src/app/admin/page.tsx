@@ -1,11 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-<<<<<<< HEAD
-import { AddCategory } from "./AddCategory";
-=======
 import { CategoryList } from "./CategoryList";
-
->>>>>>> e30fd8f (category delete done)
 import { MenuComp } from "./MenuComp";
 
 export default function AdminMenu() {
