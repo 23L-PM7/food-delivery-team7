@@ -1,17 +1,44 @@
 "use client";
-import { HideIcon } from "../../../public/Icons/HideIcon";
 import { Icon } from "react-icons-kit";
 import { eyeOff } from "react-icons-kit/feather/eyeOff";
 import { eye } from "react-icons-kit/feather/eye";
 import { useState } from "react";
+import axios from "axios";
+import { fetchUsers } from "../util";
 export function Input() {
   const [show, setShow] = useState("password");
-  const [hider, setHider] = useState(() => eyeOff)
+  const [hider, setHider] = useState(() => eyeOff);
   const [type, setType] = useState("password");
-  const [email, setEmail] = useState("");
-  const [pass, setPass] = useState("");
+  const [userEmail, setUserEmail] = useState("");
+  const [userName, setUserName] = useState("");
+  const [userPassword, setUserPassword] = useState("");
   const [icon, setIcon] = useState(() => eyeOff);
 
+  // function submit(){
+  //   console.log({userName ,userEmail , userPassword})
+  // }
+  const submit = async()=>{
+    console.log({userName, userEmail, userPassword})
+    if (!userName){
+      alert("Please enter name")
+      return;
+    }
+    try{
+      await axios.post("http://localhost:3000/user/create",{
+        userName,
+        userEmail,
+        userPassword,
+      });
+      setUserName(""),
+      setUserEmail(""),
+      setUserPassword(""),
+
+      fetchUsers()
+    }catch (error){
+      console.error("Error:", error);
+      alert("hh")
+    }
+  }
   function handleToggler(){
     if(show === "password"){
       setHider(eye);
@@ -45,6 +72,8 @@ export function Input() {
           </label>
           <input
             placeholder="Нэр"
+            value={userName}
+            onChange={(e) => setUserName(e.target.value)}
             type="name"
             autoFocus
             className="bg-gray-100 px-4 py-4  transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-gray-200"
@@ -60,6 +89,8 @@ export function Input() {
           <input
             placeholder="Имэйл"
             type="email"
+            value={userEmail}
+            onChange={(e) => setUserEmail(e.target.value)}
             autoFocus
             className="bg-gray-100 px-4 py-4  transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-gray-200"
           />
@@ -91,8 +122,8 @@ export function Input() {
             <input
               placeholder="Нууц үг"
               type={type}
-              value={pass}
-              onChange={(e) => setPass(e.target.value)}
+              value={userPassword}
+              onChange={(e) => setUserPassword(e.target.value)}
               id="password"
               className="bg-gray-100  px-4 py-4 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-gray-200"
             />
@@ -140,7 +171,7 @@ export function Input() {
         <div className="flex items-center space-x-2"></div>
         <div className="form-control">
           <div className="flex items-center">
-            <input type="checkbox" defaultChecked className="checkbox" />
+            <input type="checkbox"  className="checkbox" />
             <label className="label cursor-pointer">
               <span className="label-text">Үйлчилгээний нөхцөл зөвшөөрөх</span>
             </label>
@@ -149,6 +180,7 @@ export function Input() {
         <div>
           <button
             type="submit"
+            onClick={submit}
             className="w-full flex justify-center mx-auto px-4 py-4 text-lg  text-gray-400 transition-colors duration-300 bg-gray-200 rounded-md shadow hover:bg-green-600 hover:text-white focus:outline-none focus:ring-blue-200 focus:ring-4"
           >
             Бүртгүүлэх

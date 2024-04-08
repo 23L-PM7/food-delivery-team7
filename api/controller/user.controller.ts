@@ -7,11 +7,11 @@ export async function getUser(_req:any, res:any) {
   }
   
   export async function createUser(req:any, res:any) {
+    const {userName , userEmail,  userPassword}= req.body
     const user = await UserModel.create({
-      userName: "ganaa",
-      userEmail: "gana@gmail.com",
-      userNumber: 88086559,
-      userPassword: "lolcioropass"
+      userName,
+      userEmail,
+      userPassword
     });
   
     res.json(user);
