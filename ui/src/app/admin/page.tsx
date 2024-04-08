@@ -11,7 +11,7 @@ export default function AdminMenu() {
           <h1 className="text-[22px] text-[#272727] font-bold mb-10">
             Food menu
           </h1>
-          <div className="grid gap-[26px] ">
+          <div className="grid gap-[26px]">
             <CategoryList />
           </div>
         </div>
