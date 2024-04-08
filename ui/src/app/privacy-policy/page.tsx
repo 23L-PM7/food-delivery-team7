@@ -2,9 +2,9 @@ import { TermsOfServiceIcon } from "@/components/icons/TersmOfservise";
 
 export default function PrivacyPolicy() {
   return (
-    <div className="container mx-auto w-[1100px] h-[1000px]">
+    <div className="container mx-auto w-[1100px] w-full">
       <div className="flex gap-3 py-5">
-      <TermsOfServiceIcon />
+        <TermsOfServiceIcon />
         <h1 className="font-bold text-2xl">Нууцлалын бодлого</h1>
       </div>
       <p className="indent-8">
@@ -44,9 +44,8 @@ export default function PrivacyPolicy() {
         хэрэгжинэ.
       </p>
       <p className="indent-10 mb-10">
-        Энэхүү үйлчилгээний нөхцлийн хэрэгжилтэнд MStars Lab /цаашид
-        байгууллага гэх/ болон хэрэглэгч /цаашид хэрэглэгч гэх/ хамтран хяналт
-        тавина.
+        Энэхүү үйлчилгээний нөхцлийн хэрэгжилтэнд MStars Lab /цаашид байгууллага
+        гэх/ болон хэрэглэгч /цаашид хэрэглэгч гэх/ хамтран хяналт тавина.
       </p>
       <p className="indent-8">
         Mstars Food delivery нь Mstars Lab компанийн интернэт худалдааны албан
@@ -84,7 +83,7 @@ export default function PrivacyPolicy() {
         үйлчлүүлэхээсээ өмнө хүлээн зөвшөөрч баталгаажуулсаны үндсэн дээр
         хэрэгжинэ.
       </p>
-      <p className="indent-10">
+      <p className="indent-10 h-[100px]">
         Энэхүү үйлчилгээний нөхцлийн хэрэгжилтэнд MStars Lab /цаашид байгууллага
         гэх/ болон хэрэглэгч /цаашид хэрэглэгч гэх/ хамтран хяналт тавина.
       </p>

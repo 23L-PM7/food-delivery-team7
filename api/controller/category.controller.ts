@@ -6,27 +6,24 @@ export async function getCategory(req: any, res: any) {
 }
 
 export async function createCategory(req: any, res: any) {
-  const { categoryName } = req.body;
-  console.log(categoryName);
+  const { name } = req.body;
+  console.log(name);
 
   const categories = await CategoryModel.create({
-    categoryName: categoryName,
+    name: name,
   });
   res.json(categories);
 }
 
-export async function putCategory(req: any, res: any) {
-  // const { categoryName } = req.body;
-  // const categories = await CategoryModel.create({
-  //   categoryName,
-  // });
-  // res.json(categories);
+export async function updateCategory(req: any, res: any) {
+  const { _id } = req.params;
+  const categories = await CategoryModel.updateOne({ _id });
+  res.json(categories);
 }
 
 export async function deleteCategory(req: any, res: any) {
-  // const { categoryName } = req.body;
-  // const categories = await CategoryModel.create({
-  //   categoryName,
-  // });
-  // res.json(categories);
+  const { _id } = req.params;
+
+  await CategoryModel.deleteOne({ _id });
+  res.sendStatus(204);
 }

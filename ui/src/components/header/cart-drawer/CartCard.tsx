@@ -5,9 +5,24 @@ import axios from "axios";
 
 export default function CartCard() {
   let [number, setNumber] = useState(1);
-  const [entree, setEntree] = useState([]);
+  const entreeArray = [
+    {
+      entreeId: "0",
+    },
+    {
+      entreeId: "1",
+    },
+    {
+      entreeId: "2",
+    },
+    {
+      entreeId: "3",
+    },
+  ];
 
-  // function loadTasks() {
+  // const [entree, setEntree] = useState([]);
+
+  // function loadEntree() {
   //   // axios.get(
   //   //   // "http://localhost:3000/entree"
   //   //   ).then((response) => {
@@ -16,18 +31,18 @@ export default function CartCard() {
   // }
 
   // useEffect(() => {
-  //   loadTasks();
+  //   loadEntree();
   // }, []);
 
-  function deleteTask() {
-    // if (confirm("Delete?")) {
-    //   axios.delete(
-    //     // `http://localhost:3000/entree/delete/${id}`
-    //     ).then(() => {
-    //     loadTasks();
-    //   });
-    // }
-  }
+  // function deleteEntree() {
+  //   if (confirm("Delete?")) {
+  //     axios.delete(
+  //       // `http://localhost:3000/entree/delete/${id}`
+  //       ).then(() => {
+  //       loadEntree();
+  //     });
+  //   }
+  // }
 
   function Minus() {
     if (number > 0) {
@@ -53,14 +68,7 @@ export default function CartCard() {
               <p className="text-green-500">34,800₮</p>
             </div>
             <div>
-              <button
-                onClick={
-                  () => deleteTask()
-                  // `task.id`
-                }
-              >
-                X
-              </button>
+              <button onClick={() => deleteEntree("yourEntreeId")}>X</button>
             </div>
           </div>
 

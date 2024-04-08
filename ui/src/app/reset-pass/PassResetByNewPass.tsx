@@ -17,10 +17,6 @@ export default function PassResetByNewPass() {
     setMessage("Нууц үг амжилттай солигдлоо");
   };
 
-  const getNewPass = () => {
-    window.location.href = "/sign-in";
-  };
-
   function handleToggler() {
     if (show === "password") {
       setHider(eye);
@@ -33,11 +29,6 @@ export default function PassResetByNewPass() {
 
   return (
     <>
-      {/* <div className="flex gap-5 border-2 rounded-2xl mt-5 mb-5 justify-center items-center mx-auto w-[448px] p-5">
-        <CheckIcon />
-        <h1 className="text-green-600">Нууц үг амжилттай солигдлоо</h1>
-      </div> */}
-
       <div className="flex flex-col gap-5 mt-40 mb-20 justify-center items-center mx-auto w-[448px] h-[310px] p-5">
         <h1 className="text-2xl">Шинэ нууц үг зохиох </h1>
         <div className="flex flex-col w-full max-w-xs gap-3">
@@ -87,7 +78,6 @@ export default function PassResetByNewPass() {
             role="button"
             aria-disabled="true"
             onClick={handleSave}
-            // onClick={getNewPass}
           >
             Үргэлжлүүлэх
           </button>

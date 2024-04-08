@@ -1,27 +1,22 @@
 import { CloseIcon } from "@/components/icons/CloseIcon";
 import { useState, useEffect } from "react";
-import { categories } from "@/components/CategoryData";
 import axios from "axios";
 import Select from "react-select";
+import { fetcher } from "../util";
 
 export function showModal() {
   document.getElementById("menu_modal").showModal();
 }
 
 export function AddMenu() {
-<<<<<<< HEAD
-
   type Menu = {
-=======
-  interface Menu {
->>>>>>> 2cc4bf8 (category crud)
     foodName: string;
     foodCategory: string;
     foodIngredients: string;
     foodPrice: number;
     salesPercentage: number;
     foodImg: string;
-  }
+  };
 
   const [foodName, setFoodName] = useState("");
   const [foodIngredients, setFoodIngredients] = useState("");
@@ -30,10 +25,24 @@ export function AddMenu() {
   const [salesPercentage, setSalesPercentage] = useState("");
   const [foodImg, setFoodImg] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<any>(null);
+  const [categories, setCategories] = useState([]);
+
+
 
   const hideModal = () => {
     document.getElementById("menu_modal").close();
   };
+
+  useEffect(() => {
+    fecthCategories();
+  }, []);
+
+  const fecthCategories = () => {
+    fetch("http://localhost:8000/category")
+    .then((res) => res.json())
+    .then((data) => setCategories(data));
+  };
+
   // add menu
   const newMenu = async () => {
     // if (
@@ -57,10 +66,9 @@ export function AddMenu() {
       foodImg,
     };
 
-    console.log(newMenu);
 
     await axios
-      .post("http://localhost:3000/menu/create", { ...newMenu })
+      .post("http://localhost:8000/menu/create", { ...newMenu })
       .then(() => {
         handleClear;
         hideModal;
@@ -98,7 +106,7 @@ export function AddMenu() {
 
   const options = categories.map((category) => {
     return {
-      value: category.name,
+      value: category._id,
       label: category.name,
     };
   });
@@ -189,14 +197,18 @@ export function AddMenu() {
             </div>
             <div className="grid gap-2">
               <p className="text-sm font-medium text-[#121316]">Хоолны зураг</p>
-              <input
-                type="image"
-                src="img_submit.gif"
-                alt="Submit"
-                width="48"
-                height="48"
-                onChange={handleFoodImg}
-              ></input>
+
+              <div className="w-[284px] h-[122px] bg-[#BABCC4]/[12%] border-[1px] border-dashed border-[#D6D7DC] text-[#525252] rounded-lg">
+                <div className="flex flex-col gap-2 items-center mt-6">
+                  <h3>Add image for the food</h3>
+                  <label htmlFor="file" className="cursor-pointer">
+                    <div className="bg-[#393939] px-2 py-1 flex border rounded-lg text-white">
+                      <span>Add image</span>
+                    </div>
+                    <input id="file" type="file" className="hidden" />
+                  </label>
+                </div>
+              </div>
             </div>
           </div>
 

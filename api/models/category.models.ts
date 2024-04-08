@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const { Schema } = mongoose;
 
 const categorySchema = new Schema({
-  categoryName: {
+  name: {
     type: String,
     unique: true,
   },

@@ -30,7 +30,7 @@ export default function UserProfile() {
   return (
     <>
       <div>
-        <div className="flex flex-col gap-5 border-2 rounded mt-20 mb-5 justify-center items-center mx-auto w-[448px] h-[224px] p-5">
+        <div className="flex flex-col gap-5 mt-20 mb-5 justify-center items-center mx-auto w-[448px] h-[224px] p-5">
           <div className="relative">
             <img src="/images/user-photo.jpg" alt="profile picture" />
 
@@ -45,9 +45,9 @@ export default function UserProfile() {
           <h1 className="text-3xl font-bold">УгтахБаяр</h1>
         </div>
 
-        <div className="flex flex-col gap-5 border-2 rounded mt-5 mb-20 justify-center items-center mx-auto w-[448px] p-5">
-          <div className="flex bg-slate-200 rounded p-2 w-full items-center">
-            <div className="flex bg-slate-200 rounded p-2 w-full items-center gap-3">
+        <div className="flex flex-col gap-5 mt-5 mb-20 justify-center items-center mx-auto w-[448px] p-5">
+          <div className="flex bg-slate-100 rounded p-2 w-full items-center">
+            <div className="flex  rounded p-2 w-full items-center gap-3">
               <UserIcon />
               <div>
                 <p className="text-slate-400">Таны нэр</p>
@@ -59,8 +59,8 @@ export default function UserProfile() {
             </button>
           </div>
 
-          <div className="flex bg-slate-200 rounded p-2 w-full items-center">
-            <div className="flex bg-slate-200 rounded p-2 w-full items-center gap-3">
+          <div className="flex bg-slate-100 rounded p-2 w-full items-center">
+            <div className="flex rounded p-2 w-full items-center gap-3">
               <PhoneIcon />
               <div>
                 <p className="text-slate-400">Утасны дугаар</p>
@@ -72,8 +72,8 @@ export default function UserProfile() {
             </button>
           </div>
 
-          <div className="flex bg-slate-200 rounded p-2 w-full items-center">
-            <div className="flex bg-slate-200 rounded p-2 w-full items-center gap-3">
+          <div className="flex bg-slate-100 rounded p-2 w-full items-center">
+            <div className="flex rounded p-2 w-full items-center gap-3">
               <EmailIcon />
               <div>
                 <p className="text-slate-400">Имэйл хаяг</p>
@@ -86,7 +86,7 @@ export default function UserProfile() {
           </div>
 
           <button
-            className="flex rounded p-2 w-full items-center gap-3 border-2"
+            className="flex rounded p-2 w-full items-center gap-3"
             onClick={jumpToOrderDetails}
           >
             <TimeIcon />
@@ -95,7 +95,7 @@ export default function UserProfile() {
 
           <button
             onClick={toggleModal}
-            className="flex rounded p-2 w-full items-center gap-3 border-2"
+            className="flex rounded p-2 w-full items-center gap-3"
           >
             <LogoutIcon />
 

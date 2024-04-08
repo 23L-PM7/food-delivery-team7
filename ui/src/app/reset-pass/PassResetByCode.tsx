@@ -10,10 +10,6 @@ export default function PassResetByCode() {
   const [code, setCode] = useState("");
   const [hider, setHider] = useState(() => eyeOff);
 
-  const getCode = () => {
-    window.location.href = "/reset-pass/otp/new-pass";
-  };
-
   function handleToggler() {
     if (show === "password") {
       setHider(eye);
@@ -62,7 +58,6 @@ export default function PassResetByCode() {
         className="btn btn-enabled w-full max-w-xs hover:bg-green-500 hover:text-white"
         aria-disabled="true"
         type="submit"
-        onClick={getCode}
       >
         Үргэлжлүүлэх
       </button>

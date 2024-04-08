@@ -15,13 +15,13 @@
 //     foodImg,
 //   } = req.body;
 
-//   const menu = await MenuModel.create({
-//     foodName,
-//     foodCategory,
-//     foodIngredients,
-//     foodPrice,
-//     foodSales,
-//     foodImg,
-//   });
-//   res.json(menu);
-// }
+  const menu = await MenuModel.create({
+    foodName,
+    foodCategory,
+    foodIngredients,
+    foodPrice,
+    foodSales,
+    foodImg,
+  });
+  res.json(menu);
+}
